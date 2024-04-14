@@ -12,7 +12,7 @@ services:
       - minio
     volumes:
       - /mnt/ssd/warehouse:/home/iceberg/warehouse
-      - /mnt/ssd/notebooks:/home/iceberg/notebooks
+      - /mnt/ssd/notebooks:/home/iceberg/notebooks/notebooks
     environment:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
