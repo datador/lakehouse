@@ -11,8 +11,9 @@ services:
       - rest
       - minio
     volumes:
-      - /mnt/ssd/warehouse:/home/iceberg/warehouse
-      - /mnt/ssd/notebooks:/home/iceberg/notebooks/notebooks
+      - /mnt/ssd/spark/warehouse:/home/iceberg/warehouse
+      - /mnt/ssd/spark/notebooks:/home/iceberg/notebooks/notebooks
+      - /mnt/ssd/spark/data:/home/iceberg/data
     environment:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
@@ -51,7 +52,7 @@ services:
       - 9001:9001
       - 9000:9000
     volumes:
-      - /mnt/ssd/data:/data
+      - /mnt/ssd/minio/data:/data
     command: ["server", "/data", "--console-address", ":9001"]
   mc:
     depends_on:
