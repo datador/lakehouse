@@ -13,7 +13,6 @@ services:
     volumes:
       - /mnt/ssd/spark/warehouse:/home/iceberg/warehouse
       - /mnt/ssd/spark/notebooks:/home/iceberg/notebooks/notebooks
-      - /mnt/ssd/spark/data:/home/iceberg/data
     environment:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
