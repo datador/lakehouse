@@ -26,6 +26,7 @@ services:
       /bin/sh -c "
       # Remove preconfigured notebook files
       rm -f /home/iceberg/notebooks/*.ipynb
+      notebook
       "
   rest:
     image: tabulario/iceberg-rest
