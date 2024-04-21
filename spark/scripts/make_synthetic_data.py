@@ -209,6 +209,6 @@ Path(output_directory).mkdir(parents=True, exist_ok=True)
 
 # split by year and month and write to Parquet
 for (year, month), group in payment_df.groupby([payment_df['timestamp'].dt.year, payment_df['timestamp'].dt.month]):
-    filename = f"{year}-{month:02d}.parquet"
+    filename = f"payments-{year}-{month:02d}.parquet"
     filepath = Path(output_directory) / filename
     group.to_parquet(filepath, index=False)
