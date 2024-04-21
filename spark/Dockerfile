@@ -93,7 +93,6 @@ RUN mkdir -p /home/iceberg/data
 
 RUN mkdir -p /home/iceberg/localwarehouse /home/iceberg/notebooks /home/iceberg/warehouse /home/iceberg/spark-events /home/iceberg
 COPY notebooks/ /home/iceberg/notebooks
-COPY warehouse/ /home/iceberg/warehouse
 
 # Add a notebook command
 RUN echo '#! /bin/sh' >> /bin/notebook \
@@ -118,6 +117,10 @@ ENV PATH="/opt/spark/sbin:/opt/spark/bin:${PATH}"
 
 RUN chmod u+x /opt/spark/sbin/* && \
     chmod u+x /opt/spark/bin/*
+
+# Copy synthetic data script and ensure it's executable
+COPY scripts/make_synthetic_data.py /root/scripts/make_synthetic_data.py
+RUN chmod +x /root/scripts/make_synthetic_data.py
 
 COPY .pyiceberg.yaml /root/.pyiceberg.yaml
 
