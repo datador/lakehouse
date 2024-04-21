@@ -17,6 +17,8 @@
 # specific language governing permissions and limitations
 # under the License.
 
+python /root/scripts/make_synthetic_data.py
+
 start-master.sh -p 7077
 start-worker.sh spark://spark-iceberg:7077
 start-history-server.sh
