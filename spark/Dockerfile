@@ -93,6 +93,7 @@ RUN mkdir -p /home/iceberg/data
 
 RUN mkdir -p /home/iceberg/localwarehouse /home/iceberg/notebooks /home/iceberg/warehouse /home/iceberg/spark-events /home/iceberg
 COPY notebooks/ /home/iceberg/notebooks
+COPY warehouse/ /home/iceberg/warehouse
 
 # Add a notebook command
 RUN echo '#! /bin/sh' >> /bin/notebook \
